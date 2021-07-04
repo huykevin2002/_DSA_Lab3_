@@ -111,7 +111,7 @@ double  shell_sort_time(int* a, int n)
 {
 	clock_t start, end;
 	start = clock();
-	shell_sort(a, n);
+	shell_Sort(a, n);
 	end = clock();
 	return difftime(end, start);
 }
