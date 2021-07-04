@@ -47,10 +47,18 @@ void ShakerSortCompare(int* a, int n, unsigned long long& compare);
 
 
 // Heap Sort
-
+//Source: https://www.geeksforgeeks.org/heap-sort
+void Heapify(int arr[], int n, int i);
+void HeapSort(int arr[], int n);
+void AnotherHeapify(int arr[], int n, int i, int& Count_compare);
+void AnotherHeapSort(int arr[], int n, int& Count_compare);
 
 // Merge Sort
-
+//Source:Data.Structures.and.Algorithms.Made.Easy
+void Merge(int a[], int Tmp[], int left, int mid, int right);
+void MergeSort(int a[], int Tmp[], int left, int right);
+int AnotherMerge(int a[], int Tmp[], int left, int mid, int right, int& Count_compare);
+int AnotherMergeSort(int a[], int Tmp[], int left, int right, int& Count_compare);
 
 // Quick Sort
 // https://stackoverflow.com/questions/33837737/quick-sort-middle-pivot-implementation-strange-behaviour
@@ -61,7 +69,13 @@ void quickSortMiddleCompare(int* a, int left, int right, unsigned long long& com
 
 
 // Radix Sort
-
-
+//source: https://www.geeksforgeeks.org/radix-sort/
+int Getmax(int arr[], int n);
+void countSort(int arr[], int n, int exp);
+void radixsort(int arr[], int n);
+int AnotherGetmax(int arr[], int n, int& Count_compare);
+void AnotherCountSort(int arr[], int n, int exp, int& Count_compare);
+void AnotherradixSort(int arr[], int n, int& Count_compare);
+//
 // Flash sort
 #endif
