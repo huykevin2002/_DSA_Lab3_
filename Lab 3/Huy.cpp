@@ -1,101 +1,76 @@
 #include "Header.h"
 
-void countingSort(int* input, int n)
+void countingSort(int a[], int n)
 {
-    int output[n]; // The output will have sorted input array
-    int max = input[0];
-    int min = input[0];
- 
-    int i;
-    for(i = 1; i < n; i++)
-    {
-        if(input[i] > max)
-            max = input[i]; // Maximum value in array
-        else if(input[i] < min)
-            min = input[i]; // Minimum value in array
-    }
- 
-    int k = max - min + 1; // Size of count array
- 
-    int count_array[k]; // Create a count_array to store count of each individual input value
-    for(i=0; i<k; i++)
-        count_array[i]=0;
- 
-    for(i = 0; i < n; i++)
-        count_array[input[i] - min]++; // Store count of each individual input value
- 
-    /* Change count_array so that count_array now contains actual
-     position of input values in output array */
-    for(i = 1; i < k; i++)
-        count_array[i] += count_array[i - 1];
- 
-    // Populate output array using count_array and input array
-    for(i = 0; i < n; i++)
-    {
-        output[count_array[input[i] - min] - 1] = input[i];
-        count_array[input[i] - min]--;
-    }
- 
-    for(i = 0; i < n; i++)
-        input[i] = output[i]; // Copy the output array to input, so that input now contains sorted values
- 
+	int max = a[0];
+	for (int i = 1; i < n; i++)
+		if (a[i] > max)
+			max = a[i];
+
+	int* count = new int[max + 1];
+	for (int i = 0; i <= max; i++)
+		count[i] = 0;
+
+	for (int i = 0; i < n; i++)
+		count[a[i]]++;
+
+	for (int i = 1; i <= max; i++)
+		count[i] += count[i - 1];
+
+	int* temp = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		temp[count[a[i]] - 1] = a[i];
+		count[a[i]]--;
+	}
+
+	for (int i = 0; i < n; i++)
+		a[i] = temp[i];
+	delete[] count;
+	delete[] temp;
 }
 
-unsigned long long countingSort_compare(int* input, int n)
+int countingSort_compare(int a[], int n)
 {
-    unsigned long long count_compare = 0;
-    int output[n]; // The output will have sorted input array
-    int max = input[0];
-    int min = input[0];
+	int count_compare = 0;
+	int max = a[0];
+	for (int i = 1; ++count_compare && i < n; i++)
+		if (++count_compare && a[i] > max)
+			max = a[i];
 
-    int i;
-    for (i = 1; ++count_compare && i < n; i++)
-    {
-        if (++count_compare && input[i] > max)
-            max = input[i]; // Maximum value in array
-        else if (++count_compare && input[i] < min)
-            min = input[i]; // Minimum value in array
-    }
+	int* count = new int[max + 1];
+	for (int i = 0; ++count_compare && i <= max; i++)
+		count[i] = 0;
 
-    int k = max - min + 1; // Size of count array
+	for (int i = 0; ++count_compare && i < n; i++)
+		count[a[i]]++;
 
-    int count_array[k]; // Create a count_array to store count of each individual input value
-    for (i = 0; ++count_compare && i < k; i++)
-        count_array[i] = 0;
+	for (int i = 1; ++count_compare && i <= max; i++)
+		count[i] += count[i - 1];
 
-    for (i = 0; ++count_compare && i < n; i++)
-        count_array[input[i] - min]++; // Store count of each individual input value
+	int* temp = new int[n];
+	for (int i = 0; ++count_compare && i < n; i++)
+	{
+		temp[count[a[i]] - 1] = a[i];
+		count[a[i]]--;
+	}
 
-    /* Change count_array so that count_array now contains actual
-     position of input values in output array */
-    for (i = 1; ++count_compare && i < k; i++)
-        count_array[i] += count_array[i - 1];
+	for (int i = 0; ++count_compare && i < n; i++)
+		a[i] = temp[i];
+	delete[] count;
+	delete[] temp;
 
-    // Populate output array using count_array and input array
-    for (i = 0; ++count_compare && i < n; i++)
-    {
-        output[count_array[input[i] - min] - 1] = input[i];
-        count_array[input[i] - min]--;
-    }
-
-    for (i = 0; ++count_compare && i < n; i++)
-        input[i] = output[i]; // Copy the output array to input, so that input now contains sorted values
-
-    return count_compare;
+	return count_compare;
 }
 
-double countingSort_time(int* input, int n, unsigned long long& count_compare)
-{
-    time_t start, end;
-    start = time(NULL);
-    count_compare = countingSort_compare(input, n);
-    end = time(NULL);
+double countingSort_time(int a[], int n, int& count_compare) {
+	time_t start, end;
+	start = time(NULL);
+	count_compare = countingSort_compare(a, n);
+	end = time(NULL);
 
-    double runtime = difftime(end, start);
-
-    return runtime;
+	return difftime(end, start);
 }
-
 
 // source: https://nguyenvanhieu.vn/counting-sort/
 
