@@ -1,12 +1,16 @@
 ﻿#ifndef Header
 #define Header
-#include<iostream>
-#include<time.h>
+#include <iostream>
+#include <time.h>
 #include <fstream>
 #include <cmath>
+#include <string.h>
 using namespace std;
 
 //-------------------------------------------------
+
+template <class T>
+void HoanVi(T& a, T& b);
 
 // Hàm phát sinh mảng dữ liệu ngẫu nhiên
 void GenerateRandomData(int a[], int n);
@@ -72,7 +76,10 @@ double QuickSortTime(int* a, int left, int right);
 unsigned long long QuickSortCompare(int* a, int left, int right);
 
 // Counting Sort
-
+// source: https://github.com/HaiDuc0147/sortingAlgorithm/tree/main/reportSort
+void countingSort(int a[], int n);
+unsigned long long countingSort_compare(int a[], int n);
+double countingSort_time(int a[], int n);
 
 // Radix Sort
 //source: https://www.geeksforgeeks.org/radix-sort/
@@ -84,4 +91,16 @@ void AnotherCountSort(int arr[], int n, int exp, int& Count_compare);
 void AnotherradixSort(int arr[], int n, int& Count_compare);
 //
 // Flash sort
+// source: https://github.com/HaiDuc0147/sortingAlgorithm/tree/main/reportSort
+void flashSort(int a[], int n);
+unsigned long long flashSort_compare(int a[], int n);
+double flashSort_time(int a[], int n);
+
+// MainArgument
+int determineCommand(int argc, char* argv[]);
+void Command1(char* argv[]);
+void Command2(char* argv[]);
+void Command3(char* argv[]);
+void Command4(char* argv[]);
+void Command5(char* argv[]);
 #endif
