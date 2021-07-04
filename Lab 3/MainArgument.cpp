@@ -77,6 +77,48 @@ string runAlgorithm(char* a, int arr[], int n, double& runtime, unsigned long lo
 	int* b = new int[n];
 	CopyArr(arr, b, n);
 
+	if (strcmp(a, "selection-sort") == 0) {
+		count_compare = selection_sort_compare(arr, n);
+		runtime = selection_sort_time(b, n);
+		delete[]b;
+		return "Selection Sort";
+	}
+
+	if (strcmp(a, "insertion-sort") == 0) {
+		count_compare = insert_sort_compare(arr, n);
+		runtime = insert_sort_time(b, n);
+		delete[]b;
+		return "Insertion Sort";
+	}
+
+	if (strcmp(a, "bubble-sort") == 0) {
+		count_compare = BubbleSortCompare(arr, n);
+		runtime = BubbleSortTime(b, n);
+		delete[]b;
+		return "Bubble Sort";
+	}
+
+	if (strcmp(a, "quick-sort") == 0) {
+		count_compare = QuickSortCompare(arr, 0, n - 1);
+		runtime = QuickSortTime(b, 0, n - 1);
+		delete[]b;
+		return "Quick Sort";
+	}
+
+	if (strcmp(a, "shaker-sort") == 0) {
+		count_compare = ShakerSortCompare(arr, n);
+		runtime = ShakerSortTime(b, n);
+		delete[]b;
+		return "Shaker Sort";
+	}
+
+	if (strcmp(a, "shell-sort") == 0) {
+		count_compare = shell_sort_compare(arr, n);
+		runtime = shell_sort_time(b, n);
+		delete[]b;
+		return "Shell Sort";
+	}
+
 	if (strcmp(a, "counting-sort") == 0) {
 		count_compare = countingSort_compare(arr, n);
 		runtime = countingSort_time(b, n);
@@ -90,6 +132,7 @@ string runAlgorithm(char* a, int arr[], int n, double& runtime, unsigned long lo
 		delete[]b;
 		return "Flash Sort";
 	}
+
 
 	return "";
 }
