@@ -44,10 +44,10 @@ double  selection_sort_time(int* a, int n)
 
 
 
-// 2. BINARY INSERTION SORT
+// 2. INSERTION SORT
 void insert_sort(int*& arr, int n)
 {
-	for (int i = 0; i < n; i++)
+	for (int i = 1; i < n; i++)
 	{
 		int j = i - 1;
 		int a = arr[i];
@@ -56,22 +56,22 @@ void insert_sort(int*& arr, int n)
 			arr[j + 1] = arr[j];
 			j--;
 		}
-		arr[0] = a;
+		arr[j+1] = a;
 	}
 }
 unsigned long long insert_sort_compare(int*& arr, int n)
 {
 	unsigned long long compare = 0;
-	for (int i = 0; ++compare && i < n; i++)
+	for (int i = 1; ++compare && i < n; i++)
 	{
 		int j = i - 1;
 		int a = arr[i];
-		while (compare += 2 && j >= 0 && arr[j] > a)
+		while (++compare && j >= 0 && ++compare && arr[j] > a)
 		{
 			arr[j + 1] = arr[j];
 			j--;
 		}
-		arr[0] = a;
+		arr[j + 1] = a;
 	}
 	return compare;
 }

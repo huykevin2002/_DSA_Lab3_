@@ -30,6 +30,7 @@ void GenerateData(int a[], int n, int dataType);
 
 // Help
 void Swap(int& a, int& b);
+void Print(int* a, int n);
 void OrderType(int order);
 void CopyArr(int* source, int* dest, int n);
 void GetData();

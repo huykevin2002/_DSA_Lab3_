@@ -7,6 +7,12 @@ void Swap(int& a, int& b)
 	b = temp;
 }
 
+void Print(int* a, int n)
+{
+	for (int i = 0; i < n; i++)
+		cout << a[i] << " ";
+}
+
 void OrderType(int order)
 {
 	switch (order)
