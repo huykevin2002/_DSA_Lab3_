@@ -538,6 +538,7 @@ unsigned long long countingSort_compare(int a[], int n)
 }
 double countingSort_time(int a[], int n) {
 	clock_t start, end;
+
 	start = clock();
 	countingSort(a, n);
 	end = clock();
@@ -775,13 +776,13 @@ unsigned long long flashSort_compare(int a[], int n)
 	return count_compare;
 }
 double flashSort_time(int a[], int n) {
-	time_t start, end;
+	clock_t start, end;
 
-	start = time(NULL);
+	start = clock();
 	flashSort(a, n);
-	end = time(NULL);
+	end = clock();
 
-	return difftime(end, start);
+	return end - start;
 }
 
 
