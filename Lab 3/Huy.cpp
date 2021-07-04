@@ -30,9 +30,9 @@ void countingSort(int a[], int n)
 	delete[] temp;
 }
 
-int countingSort_compare(int a[], int n)
+unsigned long long countingSort_compare(int a[], int n)
 {
-	int count_compare = 0;
+	unsigned long long count_compare = 0;
 	int max = a[0];
 	for (int i = 1; ++count_compare && i < n; i++)
 		if (++count_compare && a[i] > max)
@@ -63,7 +63,7 @@ int countingSort_compare(int a[], int n)
 	return count_compare;
 }
 
-double countingSort_time(int a[], int n, int& count_compare) {
+double countingSort_time(int a[], int n, unsigned long long& count_compare) {
 	time_t start, end;
 	start = time(NULL);
 	count_compare = countingSort_compare(a, n);
