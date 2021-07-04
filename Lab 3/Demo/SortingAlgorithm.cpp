@@ -44,7 +44,7 @@ double  selection_sort_time(int* a, int n)
 
 
 
-// 2. INSERTION SORT
+// 2. BINARY INSERTION SORT
 void insert_sort(int*& arr, int n)
 {
 	for (int i = 0; i < n; i++)

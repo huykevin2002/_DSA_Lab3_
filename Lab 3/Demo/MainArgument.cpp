@@ -107,11 +107,11 @@ string runAlgorithm(char* a, int arr[], int n, double& runtime, unsigned long lo
 		return "Selection Sort";
 	}
 
-	if (strcmp(a, "insertion-sort") == 0) {
+	if (strcmp(a, "binary-insertion-sort") == 0) {
 		count_compare = insert_sort_compare(arr, n);
 		runtime = insert_sort_time(b, n);
 		delete[]b;
-		return "Insertion Sort";
+		return "Binary Insertion Sort";
 	}
 
 	if (strcmp(a, "bubble-sort") == 0) {
@@ -180,7 +180,7 @@ void printCompTime(char* a, double runtime, unsigned long long count_compare) {
 		cout << "Running time: " << runtime << endl;
 
 	if (strcmp(a, "-both") == 0) {
-		cout << "Running time: " << runtime << endl;
+		cout << "Running time: " << runtime << << " ms" << endl;
 		cout << "Comparisons: " << count_compare << endl;
 	}
 }
@@ -290,7 +290,7 @@ void Command4(char* argv[]) {
 
 	cout << "-------------------------" << endl;
 
-	cout << "Running time: " << runtime1 << " | " << runtime2 << endl;
+	cout << "Running time: " << runtime1 << " ms" << " | " << runtime2 << " ms" << endl;
 	cout << "Comparisons: " << count_compare1 << " | " << count_compare2 << endl;
 
 	delete[]a;
@@ -316,7 +316,7 @@ void Command5(char* argv[]) {
 
 	cout << "-------------------------" << endl;
 
-	cout << "Running time: " << runtime1 << " | " << runtime2 << endl;
+	cout << "Running time: " << runtime1 << " ms" << " | " << runtime2 << " ms" << endl;
 	cout << "Comparisons: " << count_compare1 << " | " << count_compare2 << endl;
 
 	delete[]a;
