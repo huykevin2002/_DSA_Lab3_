@@ -253,7 +253,7 @@ unsigned long long RadixCompare(int* a, int n)
 	return compare;
 }
 
-double BubbleSortTime(int* a, int n)
+double RadixTime(int* a, int n)
 {
 	clock_t start, end;
 	start = clock();
