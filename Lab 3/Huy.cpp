@@ -1,6 +1,6 @@
 #include "Header.h"
 
-void countingSort(int input[], int n)
+void countingSort(int* input, int n)
 {
     int output[n]; // The output will have sorted input array
     int max = input[0];
@@ -41,9 +41,9 @@ void countingSort(int input[], int n)
  
 }
 
-int countingSort_compare(int input[], int n)
+unsigned long long countingSort_compare(int* input, int n)
 {
-    int count_compare = 0;
+    unsigned long long count_compare = 0;
     int output[n]; // The output will have sorted input array
     int max = input[0];
     int min = input[0];
@@ -84,11 +84,11 @@ int countingSort_compare(int input[], int n)
     return count_compare;
 }
 
-double countingSort_time(int input[], int n)
+double countingSort_time(int* input, int n, unsigned long long& count_compare)
 {
     time_t start, end;
     start = time(NULL);
-    countingSort(input, n);
+    count_compare = countingSort_compare(input, n);
     end = time(NULL);
 
     double runtime = difftime(end, start);
