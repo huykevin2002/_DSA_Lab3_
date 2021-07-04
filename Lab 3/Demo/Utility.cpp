@@ -1,5 +1,12 @@
 ﻿#include "Header.h"
 
+void Swap(int& a, int& b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
 void OrderType(int order)
 {
 	switch (order)

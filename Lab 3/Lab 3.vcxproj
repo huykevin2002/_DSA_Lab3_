@@ -18,6 +18,16 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Demo\Header.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Demo\DataGenerator.cpp" />
+    <ClCompile Include="Demo\main.cpp" />
+    <ClCompile Include="Demo\MainArgument.cpp" />
+    <ClCompile Include="Demo\SortingAlgorithm.cpp" />
+    <ClCompile Include="Demo\Utility.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,14 +148,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="DataGenerator.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Sam.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Header.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
