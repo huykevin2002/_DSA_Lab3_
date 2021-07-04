@@ -1,9 +1,9 @@
 #include"Header.h"
 
-int main()
-{
-	return 0;
-}
+//int main()
+//{
+//	return 0;
+//}
 
 void OrderType(int order)
 {

@@ -77,6 +77,29 @@ string runAlgorithm(char* a, int arr[], int n, double& runtime, unsigned long lo
 	int* b = new int[n];
 	CopyArr(arr, b, n);
 
+	if (strcmp(a, "radix-sort") == 0) {
+		count_compare = RadixCompare(arr, n);
+		runtime = RadixTime(b, n);
+		delete[]b;
+		return "Radix Sort";
+	}
+
+	if (strcmp(a, "heap-sort") == 0) {
+		count_compare = HeapSortCompare(arr, n);
+		runtime = HeapSortTime(b, n);
+		delete[]b;
+		return "Heap Sort";
+	}
+
+	if (strcmp(a, "merge-sort") == 0) {
+		int* c = new int[n];
+		count_compare = MergeSort_Compare(arr, c, n);
+		runtime = MergeSortTime(b, c, n);
+		delete[]b;
+		delete[]c;
+		return "Merge Sort";
+	}
+
 	if (strcmp(a, "selection-sort") == 0) {
 		count_compare = selection_sort_compare(arr, n);
 		runtime = selection_sort_time(b, n);
