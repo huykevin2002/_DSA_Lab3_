@@ -1,3 +1,5 @@
+#include"Header.h"
+
 void Swap(int& a, int& b)
 {
 	int temp = a;
@@ -6,7 +8,7 @@ void Swap(int& a, int& b)
 }
 
 // https://stackoverflow.com/questions/33837737/quick-sort-middle-pivot-implementation-strange-behaviour
-void quickSortMiddle(int* a, int left, int right)
+void QuickSortMiddle(int* a, int left, int right)
 {
 	if (left >= right) return;
 	int pivot = a[left + (right - left) / 2];
@@ -20,11 +22,11 @@ void quickSortMiddle(int* a, int left, int right)
 			break;
 		Swap(a[leftI], a[rightI]);
 	}
-	quickSortMiddle(a, left, rightI);
-	quickSortMiddle(a, rightI + 1, right);
+	QuickSortMiddle(a, left, rightI);
+	QuickSortMiddle(a, rightI + 1, right);
 }
 
-void quickSortMiddleCompare(int* a, int left, int right, unsigned long long& compare)
+void QuickSortMiddle(int* a, int left, int right, unsigned long long& compare)
 {
 	if (++compare && left >= right) return;
 	int pivot = a[left + (right - left) / 2];
@@ -38,8 +40,24 @@ void quickSortMiddleCompare(int* a, int left, int right, unsigned long long& com
 			break;
 		Swap(a[leftI], a[rightI]);
 	}
-	quickSortMiddle(a, left, rightI);
-	quickSortMiddle(a, rightI + 1, right);
+	QuickSortMiddle(a, left, rightI);
+	QuickSortMiddle(a, rightI + 1, right);
+}
+
+unsigned long long QuickSortMiddleCompare(int* a, int left, int right)
+{
+	unsigned long long compare = 0;
+	QuickSortMiddle(a, left, right, compare);
+	return compare;
+}
+
+double QuickSortTime(int* a, int left, int right)
+{
+	clock_t start, end;
+	start = clock();
+	QuickSortMiddle(a, left, right);
+	end = clock();
+	return difftime(end, start);
 }
 
 //https://nguyenvanhieu.vn/thuat-toan-sap-xep-bubble-sort/
@@ -61,7 +79,7 @@ void BubbleSort(int* a, int n)
 	}
 }
 
-void BubbleSortCompare(int* a, int n, unsigned long long& compare)
+void BubbleSort(int* a, int n, unsigned long long& compare)
 {
 	for (int j = n; ++compare && j > 0; j--)
 	{
@@ -77,6 +95,22 @@ void BubbleSortCompare(int* a, int n, unsigned long long& compare)
 		if (++compare && !isSwap)
 			break;
 	}
+}
+
+unsigned long long BubbleSortCompare(int* a, int n)
+{
+	unsigned long long compare = 0;
+	BubbleSort(a, n, compare);
+	return compare;
+}
+
+double BubbleSortTime(int* a, int n)
+{
+	clock_t start, end;
+	start = clock();
+	BubbleSort(a, n);
+	end = clock();
+	return difftime(end, start);
 }
 
 // https://www.stdio.vn/giai-thuat-lap-trinh/bubble-sort-va-shaker-sort-01Si3U
@@ -108,7 +142,7 @@ void ShakerSort(int* a, int n)
 	}
 }
 
-void ShakerSortCompare(int* a, int n, unsigned long long& compare)
+void ShakerSort(int* a, int n, unsigned long long& compare)
 {
 	int Left = 0;
 	int Right = n - 1;
@@ -134,4 +168,20 @@ void ShakerSortCompare(int* a, int n, unsigned long long& compare)
 		}
 		Left = k;
 	}
+}
+
+unsigned long long ShakerSortCompare(int* a, int n)
+{
+	unsigned long long compare = 0;
+	ShakerSort(a, n, compare);
+	return compare;
+}
+
+double ShakerSortTime(int* a, int n)
+{
+	clock_t start, end;
+	start = clock();
+	ShakerSort(a, n);
+	end = clock();
+	return difftime(end, start);
 }

@@ -36,12 +36,16 @@ void GetData();
 // Bubble Sort
 //https://nguyenvanhieu.vn/thuat-toan-sap-xep-bubble-sort/
 void BubbleSort(int* a, int n);
-void BubbleSortCompare(int* a, int n, unsigned long long& compare);
+void BubbleSort(int* a, int n, unsigned long long& compare);
+double BubbleSortTime(int* a, int n);
+unsigned long long BubbleSortCompare(int* a, int n);
 
 // Shaker Sort
 // https://www.stdio.vn/giai-thuat-lap-trinh/bubble-sort-va-shaker-sort-01Si3U
 void ShakerSort(int* a, int n);
-void ShakerSortCompare(int* a, int n, unsigned long long& compare);
+void ShakerSort(int* a, int n, unsigned long long& compare);
+double ShakerSortTime(int* a, int n);
+unsigned long long ShakerSortCompare(int* a, int n);
 
 // Shell Sort
 
@@ -62,8 +66,10 @@ int AnotherMergeSort(int a[], int Tmp[], int left, int right, int& Count_compare
 
 // Quick Sort
 // https://stackoverflow.com/questions/33837737/quick-sort-middle-pivot-implementation-strange-behaviour
-void quickSortMiddle(int* a, int left, int right);
-void quickSortMiddleCompare(int* a, int left, int right, unsigned long long& compare);
+void QuickSort(int* a, int left, int right);
+void QuickSort(int* a, int left, int right, unsigned long long& compare);
+double QuickSortTime(int* a, int left, int right);
+unsigned long long QuickSortCompare(int* a, int left, int right);
 
 // Counting Sort
 
