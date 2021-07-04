@@ -8,7 +8,7 @@ void Swap(int& a, int& b)
 }
 
 // https://stackoverflow.com/questions/33837737/quick-sort-middle-pivot-implementation-strange-behaviour
-void QuickSortMiddle(int* a, int left, int right)
+void QuickSort(int* a, int left, int right)
 {
 	if (left >= right) return;
 	int pivot = a[left + (right - left) / 2];
@@ -22,11 +22,11 @@ void QuickSortMiddle(int* a, int left, int right)
 			break;
 		Swap(a[leftI], a[rightI]);
 	}
-	QuickSortMiddle(a, left, rightI);
-	QuickSortMiddle(a, rightI + 1, right);
+	QuickSort(a, left, rightI);
+	QuickSort(a, rightI + 1, right);
 }
 
-void QuickSortMiddle(int* a, int left, int right, unsigned long long& compare)
+void QuickSort(int* a, int left, int right, unsigned long long& compare)
 {
 	if (++compare && left >= right) return;
 	int pivot = a[left + (right - left) / 2];
@@ -40,14 +40,14 @@ void QuickSortMiddle(int* a, int left, int right, unsigned long long& compare)
 			break;
 		Swap(a[leftI], a[rightI]);
 	}
-	QuickSortMiddle(a, left, rightI);
-	QuickSortMiddle(a, rightI + 1, right);
+	QuickSort(a, left, rightI);
+	QuickSort(a, rightI + 1, right);
 }
 
-unsigned long long QuickSortMiddleCompare(int* a, int left, int right)
+unsigned long long QuickSortCompare(int* a, int left, int right)
 {
 	unsigned long long compare = 0;
-	QuickSortMiddle(a, left, right, compare);
+	QuickSort(a, left, right, compare);
 	return compare;
 }
 
@@ -55,7 +55,7 @@ double QuickSortTime(int* a, int left, int right)
 {
 	clock_t start, end;
 	start = clock();
-	QuickSortMiddle(a, left, right);
+	QuickSort(a, left, right);
 	end = clock();
 	return difftime(end, start);
 }
