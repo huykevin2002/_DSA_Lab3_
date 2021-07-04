@@ -91,5 +91,29 @@ unsigned long long shell_sort_compare(int*& a, int n)
 	}
 	return compare;
 }
+double  selection_sort_time(int* a, int n)
+{
+	clock_t start, end;
+	start = clock();
+	selection_sort(a, n);
+	end = clock();
+	return difftime(end, start);
+}
+double  insert_sort_time(int* a, int n)
+{
+	clock_t start, end;
+	start = clock();
+	insert_sort(a, n);
+	end = clock();
+	return difftime(end, start);
+}
+double  shell_sort_time(int* a, int n)
+{
+	clock_t start, end;
+	start = clock();
+	shell_sort(a, n);
+	end = clock();
+	return difftime(end, start);
+}
 
 
