@@ -160,7 +160,6 @@ unsigned long long HeapSortCompare(int* a, int n)
 	AnotherHeapSort(a, n, compare);
 	return compare;
 }
-
 double HeapSortTime(int* a, int n)
 {
 	clock_t start, end;

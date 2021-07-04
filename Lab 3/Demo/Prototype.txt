@@ -1,0 +1,20 @@
+g++ [all files except textfiles]
+
+command1: 
+a.exe -a [algorithm] [textfile's path] [output parameter] 
+
+command2:
+a.exe -a [algorithm] [size] [order] [output parameter]
+
+command3:
+a.exe -a [algorithm] [size] [output parameter]
+
+command4:
+a.exe -c [algorithm] [algorithm] [textfile's path]
+
+command5:
+a.exe -c [algorithm] [algorithm] [size] [order]
+
+[algorithm]: selection-sort, insertion-sort, bubble-sort, shaker-sort, shell-sort, heap-sort, merge-sort, quick-sort, counting-sort, radix-sort, flash-sort
+[order]: -rand, -sorted, -nsorted, -rev
+[output parameter]: -time, -comp, -both
