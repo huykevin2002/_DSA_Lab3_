@@ -108,7 +108,7 @@ void ShakerSort(int* a, int n)
 	}
 }
 
-void ShakerSortCompare(int* a, int n, unsigned long long compare)
+void ShakerSortCompare(int* a, int n, unsigned long long& compare)
 {
 	int Left = 0;
 	int Right = n - 1;
