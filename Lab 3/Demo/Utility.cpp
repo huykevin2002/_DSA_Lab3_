@@ -110,6 +110,7 @@ void GetData()
 		b = new int[n];
 		c = new int[n];
 		GenerateData(a, n, order);
+		CopyArr(a, b, n);
 		unsigned long long compare = 0;
 		double time;
 		GetSort(i, a, b, c, n, time, compare);
