@@ -60,29 +60,29 @@ void GetSort(int sort, int* a, int* b, int* c, int n, double& time, unsigned lon
 		compare = HeapSortCompare(b, n);
 		break;
 	case 7:
-		cout << "Merge Sort \n";
+		cout << "Merge Sort \n";	
 		time = MergeSortTime(a, c, n);
-		compare = MergeSort_Compare(a, c, n);
+		compare = MergeSort_Compare(b, c, n);
 		break;
 	case 8:
 		cout << "Quick Sort \n";
 		time = QuickSortTime(a, 0, n - 1);
-		compare = QuickSortCompare(a, 0, n - 1);
+		compare = QuickSortCompare(b, 0, n - 1);
 		break;
 	case 9:
 		cout << "Counting Sort \n";
 		time = countingSort_time(a, n);
-		compare = countingSort_compare(a, n);
+		compare = countingSort_compare(b, n);
 		break;
 	case 10:
 		cout << "Radix Sort \n";
 		time = RadixTime(a, n);
-		compare = RadixCompare(a, n);
+		compare = RadixCompare(b, n);
 		break;
 	case 11:
 		cout << "Flash Sort \n";
 		time = flashSort_time(a, n);
-		compare = flashSort_compare(a, n);
+		compare = flashSort_compare(b, n);
 		break;
 	default:
 		break;
@@ -111,7 +111,7 @@ void GetData()
 		c = new int[n];
 		GenerateData(a, n, order);
 		CopyArr(a, b, n);
-		unsigned long long compare = 0;
+		unsigned long long compare;
 		double time;
 		GetSort(i, a, b, c, n, time, compare);
 		cout << "Time:\t " << time << " ms\t Comparisions: " << compare << "\n\n";
