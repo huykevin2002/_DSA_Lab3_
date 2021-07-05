@@ -347,7 +347,7 @@ void Merge(int* a, int* Tmp, int left, int mid, int right) {
 		cur = cur + 1;
 		mid = mid + 1;
 	}
-	for (int i = 0; i <= size; i++) {
+	for (int i = 0; i < size; i++) {
 		a[right] = Tmp[right];
 		right = right - 1;
 	}

@@ -60,7 +60,7 @@ void GetSort(int sort, int* a, int* b, int* c, int n, double& time, unsigned lon
 		compare = HeapSortCompare(b, n);
 		break;
 	case 7:
-		cout << "Merge Sort \n";	
+		cout << "Merge Sort \n";
 		time = MergeSortTime(a, c, n);
 		compare = MergeSort_Compare(b, c, n);
 		break;
