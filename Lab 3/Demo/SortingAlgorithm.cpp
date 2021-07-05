@@ -231,7 +231,7 @@ unsigned long long shell_sort_compare(int*& a, int n)
 	for (interval = n / 2; ++compare && interval > 0; interval /= 2) {
 		for (i = interval; ++compare && i < n; i++) {
 			temp = a[i];
-			for (j = i; compare += 2 && j >= interval && a[j - interval] > temp; j -= interval) {
+			for (j = i; ++compare && j >= interval && ++compare && a[j - interval] > temp; j -= interval) {
 				a[j] = a[j - interval];
 			}
 			a[j] = temp;

@@ -17,10 +17,75 @@ void OrderType(int order)
 {
 	switch (order)
 	{
-	case 0:cout << "Random"; break;
-	case 1:cout << "Sorted"; break;
-	case 2:cout << "Nearly Sorted"; break;
-	case 3:cout << "Reverse"; break;
+	case 0:cout << "RANDOMIZE\n"; break;
+	case 1:cout << "SORTED\n"; break;
+	case 2:cout << "REVERSE SORTED\n"; break;
+	case 3:cout << "NEARLY SORTED\n"; break;
+	default: break;
+	}
+}
+
+void GetSort(int sort, int* a, int* b, int* c, int n, double& time, unsigned long long& compare)
+{
+	switch (sort)
+	{
+	case 1:
+		cout << "Selection Sort \n";
+		time = selection_sort_time(a, n);
+		compare = selection_sort_compare(b, n);
+		break;
+	case 2:
+		cout << "Insertion Sort \n";
+		time = insert_sort_time(a, n);
+		compare = insert_sort_compare(b, n);
+		break;
+	case 3:
+		cout << "Bubble Sort \n";
+		time = BubbleSortTime(a, n);
+		compare = BubbleSortCompare(b, n);
+		break;
+	case 4:
+		cout << "Shaker Sort \n";
+		time = ShakerSortTime(a, n);
+		compare = ShakerSortCompare(b, n);
+		break;
+	case 5:
+		cout << "Shell Sort \n";
+		time = shell_sort_time(a, n);
+		compare = shell_sort_compare(b, n);
+		break;
+	case 6:
+		cout << "Heap Sort \n";
+		time = HeapSortTime(a, n);
+		compare = HeapSortCompare(b, n);
+		break;
+	case 7:
+		cout << "Merge Sort \n";
+		time = MergeSortTime(a, c, n);
+		compare = MergeSort_Compare(a, c, n);
+		break;
+	case 8:
+		cout << "Quick Sort \n";
+		time = QuickSortTime(a, 0, n - 1);
+		compare = QuickSortCompare(a, 0, n - 1);
+		break;
+	case 9:
+		cout << "Counting Sort \n";
+		time = countingSort_time(a, n);
+		compare = countingSort_compare(a, n);
+		break;
+	case 10:
+		cout << "Radix Sort \n";
+		time = RadixTime(a, n);
+		compare = RadixCompare(a, n);
+		break;
+	case 11:
+		cout << "Flash Sort \n";
+		time = flashSort_time(a, n);
+		compare = flashSort_compare(a, n);
+		break;
+	default:
+		break;
 	}
 }
 
@@ -33,26 +98,24 @@ void CopyArr(int* source, int* dest, int n)
 
 void GetData()
 {
-	int check[] = { 10000, 30000, 50000, 100000, 300000, 500000 };
-	for (int i = 0; i < 4; i++)
+	cout << "Choose order and size: \n";
+	int order, n;
+	cout << "0. Randomized\n1. Sorted\n2. Reverse Sorted\n3. Nearly Sorted\n";
+	cin >> order >> n;
+	cout << '\n'; OrderType(order);
+	int* a, * b, *c;
+	for (int i = 1; i <= 11; i++)
 	{
-		cout << '\n'; OrderType(i);
-		for (int size = 0; size < 6; size++) {
-			int* a = new int[check[size]];
-			int* b = new int[check[size]];
-			GenerateData(a, check[size], i);
-			CopyArr(a, b, check[size]);
-			clock_t start, end;
-			unsigned long long compare = 0;
-			start = clock();
-			// ham ko dem
-
-			end = clock();
-			// ham dem
-
-			cout << "\n size: " << check[size] << "\ttime\t" << end - start << " ms \t\tcompare: " << compare;
-			delete[]a;
-			delete[]b;
-		}
+		a = new int[n];
+		b = new int[n];
+		c = new int[n];
+		GenerateData(a, n, order);
+		unsigned long long compare = 0;
+		double time;
+		GetSort(i, a, b, c, n, time, compare);
+		cout << "Time:\t " << time << " ms\t Comparisions: " << compare << "\n\n";
+		delete[]a;
+		delete[]b;
+		delete[]c;
 	}
 }
