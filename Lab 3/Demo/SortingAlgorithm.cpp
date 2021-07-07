@@ -13,7 +13,7 @@ void selection_sort(int*& arr, int n)
 				index = j;
 			}
 		}
-		swap(arr[i], arr[index]);
+		HoanVi(arr[i], arr[index]);
 	}
 }
 unsigned long long selection_sort_compare(int*& arr, int n)
@@ -29,7 +29,7 @@ unsigned long long selection_sort_compare(int*& arr, int n)
 				index = j;
 			}
 		}
-		swap(arr[i], arr[index]);
+		HoanVi(arr[i], arr[index]);
 	}
 	return compare;
 }
@@ -91,16 +91,16 @@ void BubbleSort(int* a, int n)
 {
 	for (int j = n; j > 0; j--)
 	{
-		bool isSwap = false;
+		bool isHoanVi = false;
 		for (int i = 0; i < j - 1; i++)
 		{
 			if (a[i] > a[i + 1])
 			{
-				Swap(a[i], a[i + 1]);
-				isSwap = true;
+				HoanVi(a[i], a[i + 1]);
+				isHoanVi = true;
 			}
 		}
-		if (!isSwap)
+		if (!isHoanVi)
 			break;
 	}
 }
@@ -108,16 +108,16 @@ void BubbleSort(int* a, int n, unsigned long long& compare)
 {
 	for (int j = n; ++compare && j > 0; j--)
 	{
-		bool isSwap = false;
+		bool isHoanVi = false;
 		for (int i = 0; ++compare && i < j - 1; i++)
 		{
 			if (++compare && a[i] > a[i + 1])
 			{
-				Swap(a[i], a[i + 1]);
-				isSwap = true;
+				HoanVi(a[i], a[i + 1]);
+				isHoanVi = true;
 			}
 		}
-		if (++compare && !isSwap)
+		if (++compare && !isHoanVi)
 			break;
 	}
 }
@@ -150,7 +150,7 @@ void ShakerSort(int* a, int n)
 		{
 			if (a[i] > a[i + 1])
 			{
-				Swap(a[i], a[i + 1]);
+				HoanVi(a[i], a[i + 1]);
 				k = i;
 			}
 		}
@@ -159,7 +159,7 @@ void ShakerSort(int* a, int n)
 		{
 			if (a[i] < a[i - 1])
 			{
-				Swap(a[i], a[i - 1]);
+				HoanVi(a[i], a[i - 1]);
 				k = i;
 			}
 		}
@@ -177,7 +177,7 @@ void ShakerSort(int* a, int n, unsigned long long& compare)
 		{
 			if (++compare && a[i] > a[i + 1])
 			{
-				Swap(a[i], a[i + 1]);
+				HoanVi(a[i], a[i + 1]);
 				k = i;
 			}
 		}
@@ -186,7 +186,7 @@ void ShakerSort(int* a, int n, unsigned long long& compare)
 		{
 			if (++compare && a[i] < a[i - 1])
 			{
-				Swap(a[i], a[i - 1]);
+				HoanVi(a[i], a[i - 1]);
 				k = i;
 			}
 		}
@@ -262,7 +262,7 @@ void Heapify(int* arr, int n, int i) {
 		largest = right;
 	}
 	if (largest != i) {
-		swap(arr[i], arr[largest]);
+		HoanVi(arr[i], arr[largest]);
 		Heapify(arr, n, largest);
 	}
 }
@@ -272,7 +272,7 @@ void HeapSort(int* arr, int n)
 		Heapify(arr, n, i);
 	}
 	for (int i = n - 1; i >= 0; i--) {
-		swap(arr[0], arr[i]);
+		HoanVi(arr[0], arr[i]);
 		Heapify(arr, i, 0);
 	}
 }
@@ -287,7 +287,7 @@ void AnotherHeapify(int arr[], int n, int i, unsigned long long& Count_compare) 
 		largest = right;
 	}
 	if (++Count_compare && largest != i) {
-		swap(arr[i], arr[largest]);
+		HoanVi(arr[i], arr[largest]);
 		Heapify(arr, n, largest);
 	}
 }
@@ -296,7 +296,7 @@ void AnotherHeapSort(int* arr, int n, unsigned long long& Count_compare) {
 		AnotherHeapify(arr, n, i, Count_compare);
 	}
 	for (int i = n - 1; ++Count_compare && i >= 0; i--) {
-		swap(arr[0], arr[i]);
+		HoanVi(arr[0], arr[i]);
 		AnotherHeapify(arr, i, 0, Count_compare);
 	}
 }
@@ -435,7 +435,7 @@ void QuickSort(int* a, int left, int right)
 		while (a[--rightI] > pivot);
 		if (leftI >= rightI)
 			break;
-		Swap(a[leftI], a[rightI]);
+		HoanVi(a[leftI], a[rightI]);
 	}
 	QuickSort(a, left, rightI);
 	QuickSort(a, rightI + 1, right);
@@ -452,7 +452,7 @@ void QuickSort(int* a, int left, int right, unsigned long long& compare)
 		while (++compare && a[--rightI] > pivot);
 		if (++compare && leftI >= rightI)
 			break;
-		Swap(a[leftI], a[rightI]);
+		HoanVi(a[leftI], a[rightI]);
 	}
 	QuickSort(a, left, rightI);
 	QuickSort(a, rightI + 1, right);

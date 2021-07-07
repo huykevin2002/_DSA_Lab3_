@@ -1,12 +1,5 @@
 ﻿#include "Header.h"
 
-void Swap(int& a, int& b)
-{
-	int temp = a;
-	a = b;
-	b = temp;
-}
-
 void Print(int* a, int n)
 {
 	for (int i = 0; i < n; i++)
@@ -32,57 +25,57 @@ void GetSort(int sort, int* a, int* b, int* c, int n, double& time, unsigned lon
 	case 1:
 		cout << "Selection Sort \n";
 		time = selection_sort_time(a, n);
-		compare = selection_sort_compare(b, n);
+		//compare = selection_sort_compare(b, n);
 		break;
 	case 2:
 		cout << "Insertion Sort \n";
 		time = insert_sort_time(a, n);
-		compare = insert_sort_compare(b, n);
+		//compare = insert_sort_compare(b, n);
 		break;
 	case 3:
 		cout << "Bubble Sort \n";
 		time = BubbleSortTime(a, n);
-		compare = BubbleSortCompare(b, n);
+		//compare = BubbleSortCompare(b, n);
 		break;
 	case 4:
 		cout << "Shaker Sort \n";
 		time = ShakerSortTime(a, n);
-		compare = ShakerSortCompare(b, n);
+		//compare = ShakerSortCompare(b, n);
 		break;
 	case 5:
 		cout << "Shell Sort \n";
 		time = shell_sort_time(a, n);
-		compare = shell_sort_compare(b, n);
+		//compare = shell_sort_compare(b, n);
 		break;
 	case 6:
 		cout << "Heap Sort \n";
 		time = HeapSortTime(a, n);
-		compare = HeapSortCompare(b, n);
+		//compare = HeapSortCompare(b, n);
 		break;
 	case 7:
 		cout << "Merge Sort \n";
 		time = MergeSortTime(a, c, n);
-		compare = MergeSort_Compare(b, c, n);
+		//compare = MergeSort_Compare(b, c, n);
 		break;
 	case 8:
 		cout << "Quick Sort \n";
 		time = QuickSortTime(a, 0, n - 1);
-		compare = QuickSortCompare(b, 0, n - 1);
+		//compare = QuickSortCompare(b, 0, n - 1);
 		break;
 	case 9:
 		cout << "Counting Sort \n";
 		time = countingSort_time(a, n);
-		compare = countingSort_compare(b, n);
+		//compare = countingSort_compare(b, n);
 		break;
 	case 10:
 		cout << "Radix Sort \n";
 		time = RadixTime(a, n);
-		compare = RadixCompare(b, n);
+		//compare = RadixCompare(b, n);
 		break;
 	case 11:
 		cout << "Flash Sort \n";
 		time = flashSort_time(a, n);
-		compare = flashSort_compare(b, n);
+		//compare = flashSort_compare(b, n);
 		break;
 	default:
 		break;
@@ -110,8 +103,8 @@ void GetData()
 		b = new int[n];
 		c = new int[n];
 		GenerateData(a, n, order);
-		CopyArr(a, b, n);
-		unsigned long long compare;
+		/*CopyArr(a, b, n);*/
+		unsigned long long compare = 0;
 		double time;
 		GetSort(i, a, b, c, n, time, compare);
 		cout << "Time:\t " << time << " ms\t Comparisions: " << compare << "\n\n";
