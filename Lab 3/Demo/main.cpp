@@ -20,5 +20,5 @@ int main(int argc, char* argv[]) {
 		break;
 	default: break;
 	}
-	/*GetData();*/
+	return 0;
 }
