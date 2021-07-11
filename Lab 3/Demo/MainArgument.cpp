@@ -280,7 +280,7 @@ void printCompTime(char* a, double runtime, unsigned long long count_compare) {
 		cout << "Comparisons: " << count_compare << endl;
 
 	if (strcmp(a, "-time") == 0)
-		cout << "Running time: " << runtime << endl;
+		cout << "Running time: " << runtime << " ms" << endl;
 
 	if (strcmp(a, "-both") == 0) {
 		cout << "Running time: " << runtime << " ms" << endl;
