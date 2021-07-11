@@ -73,86 +73,189 @@ int getDataType(char* a) {
 	return 4;
 }
 
-string runAlgorithm(char* a, int arr[], int n, double& runtime, unsigned long long& count_compare) {
-	int* b = new int[n];
-	CopyArr(arr, b, n);
+string runAlgorithm(char* a, int arr[], int n, double& runtime, unsigned long long& count_compare, char* mode) {
+	int* b = nullptr;
+	if (strcmp(mode, "-both") == 0) {
+		b = new int[n];
+		CopyArr(arr, b, n);
+	}
 
 	if (strcmp(a, "radix-sort") == 0) {
-		count_compare = RadixCompare(arr, n);
-		runtime = RadixTime(b, n);
-		delete[]b;
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = RadixCompare(arr, n);
+
+		if (strcmp(mode, "-time") == 0)
+			runtime = RadixTime(arr, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = RadixCompare(arr, n);
+			runtime = RadixTime(b, n);
+			delete[]b;
+		}
+
 		return "Radix Sort";
 	}
 
 	if (strcmp(a, "heap-sort") == 0) {
-		count_compare = HeapSortCompare(arr, n);
-		runtime = HeapSortTime(b, n);
-		delete[]b;
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = HeapSortCompare(arr, n);
+
+		if (strcmp(mode, "-time") == 0)
+			runtime = HeapSortTime(arr, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = HeapSortCompare(arr, n);
+			runtime = HeapSortTime(b, n);
+			delete[]b;
+		}
+
 		return "Heap Sort";
 	}
 
 	if (strcmp(a, "merge-sort") == 0) {
 		int* c = new int[n];
-		count_compare = MergeSort_Compare(arr, c, n);
-		runtime = MergeSortTime(b, c, n);
-		delete[]b;
+
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = MergeSort_Compare(arr, c, n);
+
+		if (strcmp(mode, "-time") == 0)
+			runtime = MergeSortTime(arr, c, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = MergeSort_Compare(arr, c, n);
+			runtime = MergeSortTime(b, c, n);
+			delete[]b;
+		}
+
 		delete[]c;
 		return "Merge Sort";
 	}
 
 	if (strcmp(a, "selection-sort") == 0) {
+		if (strcmp(mode, "-comp") == 0)
 		count_compare = selection_sort_compare(arr, n);
-		runtime = selection_sort_time(b, n);
-		delete[]b;
+
+		if (strcmp(mode, "-time") == 0)
+		runtime = selection_sort_time(arr, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = selection_sort_compare(arr, n);
+			runtime = selection_sort_time(b, n);
+			delete[]b;
+		}
+
 		return "Selection Sort";
 	}
 
 	if (strcmp(a, "binary-insertion-sort") == 0) {
-		count_compare = insert_sort_compare(arr, n);
-		runtime = insert_sort_time(b, n);
-		delete[]b;
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = insert_sort_compare(arr, n);
+
+		if (strcmp(mode, "-time") == 0)
+			runtime = insert_sort_time(arr, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = insert_sort_compare(arr, n);
+			runtime = insert_sort_time(b, n);
+			delete[]b;
+		}
+
 		return "Binary Insertion Sort";
 	}
 
 	if (strcmp(a, "bubble-sort") == 0) {
-		count_compare = BubbleSortCompare(arr, n);
-		runtime = BubbleSortTime(b, n);
-		delete[]b;
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = BubbleSortCompare(arr, n);
+
+		if (strcmp(mode, "-time") == 0)
+			runtime = BubbleSortTime(arr, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = BubbleSortCompare(arr, n);
+			runtime = BubbleSortTime(b, n);
+			delete[]b;
+		}
+
 		return "Bubble Sort";
 	}
 
 	if (strcmp(a, "quick-sort") == 0) {
-		count_compare = QuickSortCompare(arr, 0, n - 1);
-		runtime = QuickSortTime(b, 0, n - 1);
-		delete[]b;
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = QuickSortCompare(arr, 0, n - 1);
+
+		if (strcmp(mode, "-time") == 0)
+		runtime = QuickSortTime(arr, 0, n - 1);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = QuickSortCompare(arr, 0, n - 1);
+			runtime = QuickSortTime(b, 0, n - 1);
+			delete[]b;
+		}
+
 		return "Quick Sort";
 	}
 
 	if (strcmp(a, "shaker-sort") == 0) {
-		count_compare = ShakerSortCompare(arr, n);
-		runtime = ShakerSortTime(b, n);
-		delete[]b;
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = ShakerSortCompare(arr, n);
+
+		if (strcmp(mode, "-time") == 0)
+			runtime = ShakerSortTime(arr, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = ShakerSortCompare(arr, n);
+			runtime = ShakerSortTime(b, n);
+			delete[]b;
+		}
+
 		return "Shaker Sort";
 	}
 
 	if (strcmp(a, "shell-sort") == 0) {
-		count_compare = shell_sort_compare(arr, n);
-		runtime = shell_sort_time(b, n);
-		delete[]b;
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = shell_sort_compare(arr, n);
+
+		if (strcmp(mode, "-time") == 0)
+			runtime = shell_sort_time(arr, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = shell_sort_compare(arr, n);
+			runtime = shell_sort_time(b, n);
+			delete[]b;
+		}
+
 		return "Shell Sort";
 	}
 
 	if (strcmp(a, "counting-sort") == 0) {
-		count_compare = countingSort_compare(arr, n);
-		runtime = countingSort_time(b, n);
-		delete[]b;
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = countingSort_compare(arr, n);
+
+		if (strcmp(mode, "-time") == 0)
+			runtime = countingSort_time(arr, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = countingSort_compare(arr, n);
+			runtime = countingSort_time(b, n);
+			delete[]b;
+		}
+
 		return "Counting Sort";
 	}
 
 	if (strcmp(a, "flash-sort") == 0) {
-		count_compare = flashSort_compare(arr, n);
-		runtime = flashSort_time(b, n);
-		delete[]b;
+		if (strcmp(mode, "-comp") == 0)
+			count_compare = flashSort_compare(arr, n);
+
+		if (strcmp(mode, "-time") == 0)
+			runtime = flashSort_time(arr, n);
+
+		if (strcmp(mode, "-both") == 0) {
+			count_compare = flashSort_compare(arr, n);
+			runtime = flashSort_time(b, n);
+			delete[]b;
+		}
+
 		return "Flash Sort";
 	}
 
@@ -193,7 +296,7 @@ void Command1(char* argv[]) {
 	unsigned long long count_compare;
 
 	cout << "ALGORITHM" << endl;
-	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime, count_compare) << endl;
+	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime, count_compare, argv[4]) << endl;
 	cout << "Input file: " << argv[3] << endl;
 	cout << "Input size: " << n << endl;
 
@@ -218,7 +321,7 @@ void Command2(char* argv[]) {
 	unsigned long long count_compare;
 
 	cout << "ALGORITHM" << endl;
-	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime, count_compare) << endl;
+	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime, count_compare, argv[5]) << endl;
 	cout << "Input size: " << n << endl;
 	cout << "Input order: " << getOrder(DataType) << endl;
 
@@ -243,7 +346,7 @@ void Command3(char* argv[]) {
 	unsigned long long count_compare;
 
 	cout << "ALGORITHM MODE" << endl;
-	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime, count_compare) << endl;
+	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime, count_compare, argv[4]) << endl;
 	cout << "Input size: " << n << endl << endl;
 
 	cout << "Input order: " << getOrder(0) << endl;
@@ -265,7 +368,7 @@ void Command3(char* argv[]) {
 		GenerateData(a, n, temp);
 		writeFile(filename + to_string(i + 2) + ".txt", a, n);
 
-		runAlgorithm(argv[2], a, n, runtime, count_compare);
+		runAlgorithm(argv[2], a, n, runtime, count_compare, argv[4]);
 
 		printCompTime(argv[4], runtime, count_compare);
 		cout << endl;
@@ -280,11 +383,13 @@ void Command4(char* argv[]) {
 	int* b = new int[n];
 	CopyArr(a, b, n);
 
+	char mode[6] = "-both";
+
 	double runtime1, runtime2;
 	unsigned long long count_compare1, count_compare2;
 
 	cout << "COMPARE MODE" << endl;
-	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime1, count_compare1) << " | " << runAlgorithm(argv[3], b, n, runtime2, count_compare2) << endl;
+	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime1, count_compare1, mode) << " | " << runAlgorithm(argv[3], b, n, runtime2, count_compare2, mode) << endl;
 	cout << "Input file: " << argv[4] << endl;
 	cout << "Input size: " << n << endl;
 
@@ -306,11 +411,13 @@ void Command5(char* argv[]) {
 	writeFile("input.txt", a, n);
 	CopyArr(a, b, n);
 
+	char mode[6] = "-both";
+
 	double runtime1, runtime2;
 	unsigned long long count_compare1, count_compare2;
 
 	cout << "COMPARE MODE" << endl;
-	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime1, count_compare1) << " | " << runAlgorithm(argv[3], b, n, runtime2, count_compare2) << endl;
+	cout << "Algorithm: " << runAlgorithm(argv[2], a, n, runtime1, count_compare1, mode) << " | " << runAlgorithm(argv[3], b, n, runtime2, count_compare2, mode) << endl;
 	cout << "Input size: " << n << endl;
 	cout << "Input order: " << getOrder(DataType) << endl;
 
